@@ -33,4 +33,5 @@ curl -fsSL https://raw.githubusercontent.com/bossjones/zsh-dotfiles-prep/main/bi
 
 chezmoi init -R --debug -v --apply https://github.com/bossjones/zsh-dotfiles.git
 
+sudo chsh -s $(which zsh) ubuntu
 ```
