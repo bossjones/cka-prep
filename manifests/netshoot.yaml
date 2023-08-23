@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: eks-oncall-troubleshot-hn
+  namespace: ns-team-tnt-play--profile-service-next-deploy--dfac20-ec2ba0f7
+spec:
+  # hostNetwork: true
+  # nodeName: ip-10-89-144-197.us-west-2.compute.internal
+  containers:
+  - name: netshoot
+    image: nicolaka/netshoot
+    command: ["/bin/sh"]
+    args: ["-c", "echo hang on; while true; do date; sleep 60; done"]
+    # securityContext:
+    #   privileged: true
+    #   AllowPrivilegeEscalation: true
