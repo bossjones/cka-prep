@@ -177,3 +177,17 @@ asdf global kubetail latest
 ```
 kubectl apply -f https://github.com/weaveworks/scope/releases/download/v1.13.2/k8s-scope.yaml
 ```
+
+
+### helm
+
+```
+asdf plugin-add helm https://github.com/Antiarchitect/asdf-helm.git
+asdf install helm latest
+asdf global helm latest
+
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+```
