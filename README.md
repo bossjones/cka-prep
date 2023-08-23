@@ -86,6 +86,8 @@ sudo systemctl enable --now containerd
 
 sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo apt-get install net-tools -y
+
 
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
 
