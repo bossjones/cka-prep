@@ -99,4 +99,47 @@ sudo apt-get install -y kubelet=${KUBE_VERSION}-00 jq kubectl=${KUBE_VERSION}-00
 sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo crictl config runtime-endpoint unix:///var/run/containerd/containerd.sock
+
+sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.64.2
+
+asdf plugin-add k9s https://github.com/looztra/asdf-k9s
+asdf install k9s latest
+asdf global k9s latest
+```
+
+# bootstrap control tier
+
+```
+# Your Kubernetes control-plane has initialized successfully!
+
+# To start using your cluster, you need to run the following as a regular user:
+
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+export KUBECONFIG=~/.kube/config
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 192.168.64.2:6443 --token xauv91.bm08wbjs0oq2vpw7 \
+        --discovery-token-ca-cert-hash sha256:80a18aad5ba414b917d66a7d3200db766ea76fe06dfc24f00d1520a49c664ad0
+
+```
+
+
+### join cluster from workers
+
+```
+# use this on worker nodes
+
+sudo kubeadm join 192.168.64.2:6443 --token 7d3vz0.bn4j5y8x6exmycn8 --discovery-token-ca-cert-hash sha256:80a18aad5ba414b917d66a7d3200db766ea76fe06dfc24f00d1520a49c664ad0
+
+```
+
+### ctop
+
+```
+sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.7/ctop-0.7.7-linux-arm64 -O /usr/local/bin/ctop
+sudo chmod +x /usr/local/bin/ctop
 ```
