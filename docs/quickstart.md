@@ -35,3 +35,6 @@ chezmoi init -R --debug -v --apply https://github.com/bossjones/zsh-dotfiles.git
 
 sudo chsh -s $(which zsh) ubuntu
 ```
+
+
+# k8s install on each node
