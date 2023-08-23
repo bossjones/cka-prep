@@ -191,3 +191,15 @@ helm repo add prometheus-community https://prometheus-community.github.io/helm-c
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 ```
+
+### btop
+
+```
+cd ~/.local/src
+git clone https://github.com/aristocratos/btop
+cd btop
+make all
+sudo make install
+sudo make setuid
+
+```
